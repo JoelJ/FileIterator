@@ -1,5 +1,6 @@
 package com.joelj.collections;
 
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -16,7 +17,7 @@ import java.util.*;
  * Date: 2/10/13
  * Time: 9:24 PM
  */
-public class FileIterable implements Iterable<String> {
+public class FileIterable implements Iterable<String>, Closeable {
 	private final File file;
 	private final Scanner scanner;
 	private int currentLine;
