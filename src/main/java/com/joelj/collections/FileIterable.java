@@ -1,8 +1,7 @@
 package com.joelj.collections;
 
 import java.io.Closeable;
-import java.io.IOException;
-import java.util.Iterator;
+import java.util.List;
 
 /**
  * User: Joel Johnson
@@ -28,4 +27,7 @@ public interface FileIterable extends Iterable<String>, Closeable {
 	 */
 	@Override
 	FileIterator iterator();
+
+	String findFirst(Predicate predicate);
+	List<String> find(Predicate predicate);
 }

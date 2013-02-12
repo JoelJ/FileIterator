@@ -1,7 +1,10 @@
 package com.joelj.collections;
 
-import java.io.IOException;
+import com.google.common.collect.ImmutableList;
+
+import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 /**
  * User: Joel Johnson
@@ -12,4 +15,33 @@ abstract class AbstractFileIterable implements FileIterable {
 	/*package*/ abstract Scanner getScanner();
 	/*package*/ abstract int getCurrentLine();
 	public abstract boolean isFileOpen();
+
+	private static final boolean FIRST_ONLY = true;
+	private static final boolean ALL_RESULTS = false;
+
+	public String findFirst(Predicate predicate) {
+		ImmutableList<String> strings = find(predicate, FIRST_ONLY);
+		if(!strings.isEmpty()) {
+			return strings.get(0);
+		}
+		return null;
+	}
+
+	public List<String> find(Predicate predicate) {
+		return find(predicate, ALL_RESULTS);
+	}
+
+	private ImmutableList<String> find(Predicate predicate, boolean firstOnly) {
+		ImmutableList.Builder<String> builder = ImmutableList.builder();
+		for (String line : this) {
+			if(predicate.call(line)) {
+				builder.add(line);
+				if(firstOnly) {
+					break;
+				}
+			}
+		}
+		return builder.build();
+	}
 }
+
