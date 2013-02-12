@@ -17,7 +17,7 @@ import java.util.*;
  * Date: 2/10/13
  * Time: 9:24 PM
  */
-public class FileList implements Iterable<String>, Closeable {
+public class FileList implements FileIterable, Closeable {
 	private final File file;
 	private final Scanner scanner;
 	private int currentLine;
@@ -50,6 +50,7 @@ public class FileList implements Iterable<String>, Closeable {
 		this.scanner.close();
 	}
 
+	@Override
 	public String get(int index) {
 		while(currentLine <= index) {
 			if(scanner.hasNextLine()) {
@@ -93,7 +94,7 @@ public class FileList implements Iterable<String>, Closeable {
 
 	@Override
 	public String toString() {
-		return "FileIterable{" +
+		return "FileList{" +
 				"file=" + file +
 				", currentLine=" + currentLine +
 				", fileOpen=" + fileOpen +
