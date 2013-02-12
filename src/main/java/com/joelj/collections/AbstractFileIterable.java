@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 abstract class AbstractFileIterable implements FileIterable {
 	/*package*/ abstract int getCurrentLine();
-	/*package*/ abstract boolean hasNextLine();
+	/*package*/ abstract boolean hasLineAt(int index);
 	public abstract boolean isFileOpen();
 
 	@Override

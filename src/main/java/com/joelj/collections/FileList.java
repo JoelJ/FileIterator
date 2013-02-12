@@ -50,7 +50,7 @@ public class FileList extends AbstractFileIterable implements Closeable {
 
 	@Override
 	public String get(int index) {
-		while(currentLine <= index) {
+		while(fileOpen && currentLine <= index) {
 			if(scanner.hasNextLine()) {
 				readLine();
 			} else {
@@ -88,8 +88,13 @@ public class FileList extends AbstractFileIterable implements Closeable {
 	}
 
 	@Override
-	/*package*/ boolean hasNextLine() {
-		return this.isFileOpen() && scanner.hasNextLine();
+	/*package*/ boolean hasLineAt(int index) {
+		try {
+			this.get(index);
+			return true;
+		} catch (IndexOutOfBoundsException e) {
+			return false;
+		}
 	}
 
 	@Override

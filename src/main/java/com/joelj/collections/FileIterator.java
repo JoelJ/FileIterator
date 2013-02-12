@@ -25,11 +25,7 @@ public class FileIterator implements Iterator<String> {
 
 	@Override
 	public boolean hasNext() {
-		boolean result = iterable.getCurrentLine() > pointer || iterable.hasNextLine();
-		if(!result) {
-			iterable.close();
-		}
-		return result;
+		return iterable.hasLineAt(pointer+1);
 	}
 
 	@Override
