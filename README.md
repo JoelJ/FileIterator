@@ -32,7 +32,7 @@ Or you can search for strings:
 Or you can use the built in predicates in the Predicates class:
 
     FileIterable fileIterable = FileList.openFile(file);
-    Predicate predicate = new Predicates.PatternPredicate(Pattern.compile("(bacon|cheesecake) is (amazing|delicious)"));
+    Predicate predicate = new Predicates.Pattern(Pattern.compile("(bacon|cheesecake) is (amazing|delicious)"));
     List<String> matches = fileIterable.find(predicate);
 
 Or if you just need one result:

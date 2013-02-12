@@ -13,9 +13,9 @@ public class Predicates {
 	/**
 	 * Filters values that match the given pattern
 	 */
-	public static class PatternPredicate implements Predicate {
-		private final Pattern pattern;
-		public PatternPredicate(Pattern pattern) {
+	public static class Pattern implements Predicate {
+		private final java.util.regex.Pattern pattern;
+		public Pattern(java.util.regex.Pattern pattern) {
 			this.pattern = pattern;
 		}
 
@@ -28,9 +28,9 @@ public class Predicates {
 	/**
 	 * Filters strings if they start with the given substring
 	 */
-	public static class StartsWithPredicate implements Predicate {
+	public static class StartsWith implements Predicate {
 		private final String substring;
-		public StartsWithPredicate(String substring) {
+		public StartsWith(String substring) {
 			this.substring = substring;
 		}
 
@@ -43,9 +43,9 @@ public class Predicates {
 	/**
 	 * Filters strings if they end with the given substring
 	 */
-	public static class EndsWithPredicate implements Predicate {
+	public static class EndsWith implements Predicate {
 		private final String substring;
-		public EndsWithPredicate(String substring) {
+		public EndsWith(String substring) {
 			this.substring = substring;
 		}
 
@@ -58,9 +58,9 @@ public class Predicates {
 	/**
 	 * Filters strings if they contain the given substring
 	 */
-	public static class ContainsPredicate implements Predicate {
+	public static class Contains implements Predicate {
 		private final String substring;
-		public ContainsPredicate(String substring) {
+		public Contains(String substring) {
 			this.substring = substring;
 		}
 
