@@ -28,6 +28,18 @@ public interface FileIterable extends Iterable<String>, Closeable {
 	void close();
 
 	/**
+	 * Creates a new unmodifiable list with each line of the file populated.
+	 * To populate an existing list or a modifiable list, see {@link #toList(java.util.List)}
+	 */
+	List<String> toList();
+
+	/**
+	 * Appends every line of the file onto the given list.
+	 * @param listToPopulate The writable list to populate.
+	 */
+	void toList(List<String> listToPopulate);
+
+	/**
 	 * Returns the iterator for the Iterable.
 	 */
 	@Override

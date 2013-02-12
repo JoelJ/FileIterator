@@ -17,6 +17,22 @@ abstract class AbstractFileIterable implements FileIterable {
 	/*package*/ abstract int getCurrentLine();
 	public abstract boolean isFileOpen();
 
+	@Override
+	public List<String> toList() {
+		ImmutableList.Builder<String> result = ImmutableList.builder();
+		for (String line : this) {
+			result.add(line);
+		}
+		return result.build();
+	}
+
+	@Override
+	public void toList(List<String> listToPopulate) {
+		for (String line : this) {
+			listToPopulate.add(line);
+		}
+	}
+
 	private static final boolean FIRST_ONLY = true;
 	private static final boolean ALL_RESULTS = false;
 
