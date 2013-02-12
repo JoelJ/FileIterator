@@ -16,7 +16,7 @@ import java.net.URL;
 public class FileIterableTest {
 	@Test
 	public void testGet() throws FileNotFoundException {
-		File file = getResourceFile("File1.txt");
+		File file = ResourceFiles.getResourceFile("File1.txt");
 
 		FileList spyFileIterable = Mockito.spy(FileList.openFile(file));
 
@@ -37,7 +37,7 @@ public class FileIterableTest {
 
 	@Test
 	public void testIterator() throws FileNotFoundException {
-		File file = getResourceFile("File1.txt");
+		File file = ResourceFiles.getResourceFile("File1.txt");
 		FileIterable fileIterable = FileList.openFile(file);
 		int counter = 0;
 		try {
@@ -52,7 +52,7 @@ public class FileIterableTest {
 
 	@Test(dependsOnMethods = "testIterator")
 	public void testMultipleIterators() throws FileNotFoundException {
-		File file = getResourceFile("File1.txt");
+		File file = ResourceFiles.getResourceFile("File1.txt");
 		FileList fileIterable = FileList.openFile(file);
 		try {
 			int counter = 0;
@@ -73,7 +73,7 @@ public class FileIterableTest {
 
 	@Test(dependsOnMethods = "testIterator")
 	public void testIteratorAutoClose() throws FileNotFoundException {
-		File file = getResourceFile("File1.txt");
+		File file = ResourceFiles.getResourceFile("File1.txt");
 		FileList fileIterable = FileList.openFile(file);
 		int counter = 0;
 		try {
@@ -85,11 +85,5 @@ public class FileIterableTest {
 		} finally {
 			fileIterable.close(); //Close in case there's an error.
 		}
-	}
-
-	private File getResourceFile(String name) {
-		URL resource = this.getClass().getClassLoader().getResource(name);
-		assert resource != null : "There was no resource with the name `" + name + "`";
-		return new File(resource.getFile());
 	}
 }
