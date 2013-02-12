@@ -83,13 +83,13 @@ public class FileList extends AbstractFileIterable implements Closeable {
 	}
 
 	@Override
-	/*package*/ Scanner getScanner() {
-		return scanner;
+	/*package*/ int getCurrentLine() {
+		return currentLine;
 	}
 
 	@Override
-	/*package*/ int getCurrentLine() {
-		return currentLine;
+	/*package*/ boolean hasNextLine() {
+		return this.isFileOpen() && scanner.hasNextLine();
 	}
 
 	@Override

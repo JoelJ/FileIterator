@@ -13,8 +13,8 @@ import java.util.Scanner;
  * Time: 8:23 PM
  */
 abstract class AbstractFileIterable implements FileIterable {
-	/*package*/ abstract Scanner getScanner();
 	/*package*/ abstract int getCurrentLine();
+	/*package*/ abstract boolean hasNextLine();
 	public abstract boolean isFileOpen();
 
 	@Override
