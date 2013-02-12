@@ -16,30 +16,30 @@ You can use it just like any other Iterable in java. For example:
 
 You can also index a specific line. Like this:
 
-   FileIterable fileIterable = FileList.openFile(file);
-   String line = fileIterable.get(10);
-   System.out.println(line);
+    FileIterable fileIterable = FileList.openFile(file);
+    String line = fileIterable.get(10);
+    System.out.println(line);
 
 Or you can search for strings:
 
-   FileIterable fileIterable = FileList.openFile(file);
-   List<String> line = fileIterable.find(new Predicate() {
-      public boolean call(String string) {
-         return string.contains("Java");
-      }
-   });
+    FileIterable fileIterable = FileList.openFile(file);
+    List<String> line = fileIterable.find(new Predicate() {
+       public boolean call(String string) {
+          return string.contains("Java");
+       }
+    });
 
 Or you can use the built in predicates in the Predicates class:
 
-   FileIterable fileIterable = FileList.openFile(file);
-   Predicate predicate = new Predicates.PatternPredicate(Pattern.compile("(bacon|cheesecake) is (amazing|delicious)"));
-   List<String> matches = fileIterable.find(predicate);
+    FileIterable fileIterable = FileList.openFile(file);
+    Predicate predicate = new Predicates.PatternPredicate(Pattern.compile("(bacon|cheesecake) is (amazing|delicious)"));
+    List<String> matches = fileIterable.find(predicate);
 
 Or if you just need one result:
 
-   String firstMatch = fileIterable.findFirst(predicate);
+    String firstMatch = fileIterable.findFirst(predicate);
 
-Note: Calling these methods causes the entire file to be read, except in the case of the findFirst method, which in that case the file is read up to the first result.
+*Note: Calling these methods causes the entire file to be read, except in the case of the findFirst method, which in that case the file is read up to the first result.*
 
 TODO
 ====
