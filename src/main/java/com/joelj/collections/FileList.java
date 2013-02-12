@@ -17,22 +17,22 @@ import java.util.*;
  * Date: 2/10/13
  * Time: 9:24 PM
  */
-public class FileIterable implements Iterable<String>, Closeable {
+public class FileList implements Iterable<String>, Closeable {
 	private final File file;
 	private final Scanner scanner;
 	private int currentLine;
 	private boolean fileOpen;
 	private List<String> cache;
 
-	public static FileIterable openFile(String path) throws FileNotFoundException {
+	public static FileList openFile(String path) throws FileNotFoundException {
 		return openFile(new File(path));
 	}
 
-	public static FileIterable openFile(File file) throws FileNotFoundException {
-		return new FileIterable(file);
+	public static FileList openFile(File file) throws FileNotFoundException {
+		return new FileList(file);
 	}
 
-	private FileIterable(File file) throws FileNotFoundException {
+	private FileList(File file) throws FileNotFoundException {
 		this.file = file;
 		this.scanner = new Scanner(file);
 		this.currentLine = 0;

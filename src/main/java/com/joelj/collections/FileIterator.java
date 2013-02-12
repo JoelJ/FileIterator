@@ -13,10 +13,10 @@ import java.util.Iterator;
  */
 public class FileIterator implements Iterator<String> {
 	private final File file;
-	private final FileIterable iterable;
+	private final FileList iterable;
 	private int pointer;
 
-	FileIterator(File file, FileIterable iterable) {
+	FileIterator(File file, FileList iterable) {
 		this.file = file;
 		this.iterable = iterable;
 		this.pointer = 0;
