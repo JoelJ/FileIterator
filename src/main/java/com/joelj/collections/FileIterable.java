@@ -44,6 +44,7 @@ public class FileIterable implements Iterable<String>, Closeable {
 		return fileOpen;
 	}
 
+	@Override
 	public void close() {
 		fileOpen = false;
 		this.scanner.close();
