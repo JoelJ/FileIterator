@@ -39,7 +39,7 @@ Or if you just need one result:
 
     String firstMatch = fileIterable.findFirst(predicate);
 
-*Note: Calling these methods causes the entire file to be read, except in the case of the findFirst method, which in that case the file is read up to the first result.*
+*Note: Calling the find method causes the entire file to be read. However, the findFirst method only causes the file to be read to the first result.*
 
 TODO
 ====
