@@ -6,12 +6,9 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 /**
- * Allows easy retrieval of a file by lines or iterating over a file.
+ * Implements FileIterable loading lines into a List as Lines are read.
  *
- * This was mostly for fun. I never bothered looking to see if this was done already.
- *
- * You can iterate a file using a ForEach loop. The file will automatically close when the end has been reached.
- * (However, the close method should still be called from a finally block in case something goes wrong.)
+ * Good for smaller files that can fit in memory that will be used for random access or searched over multiple times.
  *
  * User: Joel Johnson
  * Date: 2/10/13

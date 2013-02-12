@@ -4,9 +4,10 @@ import com.google.common.collect.ImmutableList;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 /**
+ * Base implementation for FileIterables.
+ *
  * User: Joel Johnson
  * Date: 2/11/13
  * Time: 8:23 PM

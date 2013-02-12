@@ -4,6 +4,11 @@ import java.io.Closeable;
 import java.util.List;
 
 /**
+ * Allows easy retrieval of a file by lines or iterating over a file.
+ *
+ * You can iterate a file using a ForEach loop. The file will automatically close when the end has been reached.
+ * (However, the close method should still be called from a finally block in case something goes wrong.)
+ *
  * User: Joel Johnson
  * Date: 2/11/13
  * Time: 8:20 PM
