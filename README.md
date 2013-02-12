@@ -44,6 +44,8 @@ Or if you just need one result:
 TODO
 ====
 * Modify the file through changing the elements of the list/iterable.
-** Do global find and replace on the file both with strings and regex. e.g. fileIterable.replace("myStr", "a newStr")
-** Remove/Add individual lines to the files, just as you would with a list.
-* A FileIterable that doesn't store it's entire contents in memory. Rather it will store pointers or something similar to each new line it comes across and just seek to where it needs to be. This would be more ideal for working with larger files that don't fit in memory.
+  * Do global find and replace on the file both with strings and regex. e.g. fileIterable.replace("myStr", "a newStr")
+  * Remove/Add individual lines to the files, just as you would with a list.
+* A FileIterable that doesn't store it's entire contents in memory.
+  Rather it will store pointers or something similar to each new line
+  it comes across and just seek to where it needs to be. This would be more ideal for working with larger files that don't fit in memory.
