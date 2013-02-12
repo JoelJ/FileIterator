@@ -17,7 +17,7 @@ import java.util.*;
  * Date: 2/10/13
  * Time: 9:24 PM
  */
-public class FileList implements FileIterable, Closeable {
+public class FileList extends AbstractFileIterable implements Closeable {
 	private final File file;
 	private final Scanner scanner;
 	private int currentLine;
@@ -40,6 +40,7 @@ public class FileList implements FileIterable, Closeable {
 		cache = new ArrayList<String>();
 	}
 
+	@Override
 	public boolean isFileOpen() {
 		return fileOpen;
 	}
@@ -84,10 +85,12 @@ public class FileList implements FileIterable, Closeable {
 		}
 	}
 
+	@Override
 	/*package*/ Scanner getScanner() {
 		return scanner;
 	}
 
+	@Override
 	/*package*/ int getCurrentLine() {
 		return currentLine;
 	}

@@ -18,7 +18,7 @@ public class FileIterableTest {
 	public void testGet() throws FileNotFoundException {
 		File file = getResourceFile("File1.txt");
 
-		FileIterable spyFileIterable = Mockito.spy(FileIterable.openFile(file));
+		FileList spyFileIterable = Mockito.spy(FileList.openFile(file));
 
 		try {
 			Assert.assertEquals(spyFileIterable.get(4), "line 4");
@@ -38,7 +38,7 @@ public class FileIterableTest {
 	@Test
 	public void testIterator() throws FileNotFoundException {
 		File file = getResourceFile("File1.txt");
-		FileIterable fileIterable = FileIterable.openFile(file);
+		FileIterable fileIterable = FileList.openFile(file);
 		int counter = 0;
 		try {
 			for (String line : fileIterable) {
@@ -53,7 +53,7 @@ public class FileIterableTest {
 	@Test(dependsOnMethods = "testIterator")
 	public void testMultipleIterators() throws FileNotFoundException {
 		File file = getResourceFile("File1.txt");
-		FileIterable fileIterable = FileIterable.openFile(file);
+		FileList fileIterable = FileList.openFile(file);
 		try {
 			int counter = 0;
 			for (String line : fileIterable) {
@@ -74,7 +74,7 @@ public class FileIterableTest {
 	@Test(dependsOnMethods = "testIterator")
 	public void testIteratorAutoClose() throws FileNotFoundException {
 		File file = getResourceFile("File1.txt");
-		FileIterable fileIterable = FileIterable.openFile(file);
+		FileList fileIterable = FileList.openFile(file);
 		int counter = 0;
 		try {
 			for (String line : fileIterable) {

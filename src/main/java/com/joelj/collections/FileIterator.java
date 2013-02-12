@@ -1,11 +1,12 @@
 package com.joelj.collections;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
 
 /**
  * Iterates a FileIterable.
- * Uses the FileIterable as a backend (since it already handles caching lines).
+ * Uses the AbstractFileIterable as a backend (since it already handles caching lines for whatever implementation this iterator is for).
  *
  * User: Joel Johnson
  * Date: 2/10/13
@@ -13,10 +14,10 @@ import java.util.Iterator;
  */
 public class FileIterator implements Iterator<String> {
 	private final File file;
-	private final FileList iterable;
+	private final AbstractFileIterable iterable;
 	private int pointer;
 
-	FileIterator(File file, FileList iterable) {
+	FileIterator(File file, AbstractFileIterable iterable) {
 		this.file = file;
 		this.iterable = iterable;
 		this.pointer = 0;
